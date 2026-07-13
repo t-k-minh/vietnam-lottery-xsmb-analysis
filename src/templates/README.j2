@@ -7,11 +7,19 @@ Dự án này dựa trên [khiemdoan/vietnam-lottery-xsmb-analysis](https://gith
 {% for station in station_results %}
 ## {{ station.station_name }} ({{ station.last_date }})
 
-| Lottery (Xổ số) | Loto (Lô tô) |
-| :------------: | :----------: |
-| <table><tr><td>Date (Ngày)</td><td>{{ station.last_date }}</td></tr><tr><td>Special (Giải đặc biệt)</td><td>{{ "{:06}".format(station.special) }}</td></tr><tr><td>First (Giải nhất)</td><td>{{ "{:05}".format(station.prize1) }}</td></tr><tr><td>Second (Giải nhì)</td><td>{{ "{:05}".format(station.prize2) }}</td></tr><tr><td>Third (Giải ba)</td><td>{{ "{:05}".format(station.prize3_1) }}, {{ "{:05}".format(station.prize3_2) }}</td></tr><tr><td>Fourth (Giải tư)</td><td>{{ "{:05}".format(station.prize4_1) }}, {{ "{:05}".format(station.prize4_2) }}, {{ "{:05}".format(station.prize4_3) }}, {{ "{:05}".format(station.prize4_4) }}, {{ "{:05}".format(station.prize4_5) }}, {{ "{:05}".format(station.prize4_6) }}, {{ "{:05}".format(station.prize4_7) }}</td></tr><tr><td>Fifth (Giải năm)</td><td>{{ "{:05}".format(station.prize5) }}</td></tr><tr><td>Sixth (Giải sáu)</td><td>{{ "{:04}".format(station.prize6_1) }}, {{ "{:04}".format(station.prize6_2) }}, {{ "{:04}".format(station.prize6_3) }}</td></tr><tr><td>Seventh (Giải bảy)</td><td>{{ "{:03}".format(station.prize7) }}</td></tr><tr><td>Eighth (Giải tám)</td><td>{{ "{:02}".format(station.prize8) }}</td></tr></table> | <table><tr><td>First (Đầu)</td><td>Last (Đuôi)</td></tr>{%- for result in station.loto_result %}<tr><td>{{ loop.index0 }}</td><td>{{ result }}</td></tr>{%- endfor %}</table> |
+| Giải | Kết quả |
+| :--- | :------ |
+| Đặc biệt | **{{ "{:06}".format(station.special) }}** |
+| Giải nhất | {{ "{:05}".format(station.prize1) }} |
+| Giải nhì | {{ "{:05}".format(station.prize2) }} |
+| Giải ba | {{ "{:05}".format(station.prize3_1) }}, {{ "{:05}".format(station.prize3_2) }} |
+| Giải tư | {{ "{:05}".format(station.prize4_1) }}, {{ "{:05}".format(station.prize4_2) }}, {{ "{:05}".format(station.prize4_3) }}, {{ "{:05}".format(station.prize4_4) }}, {{ "{:05}".format(station.prize4_5) }}, {{ "{:05}".format(station.prize4_6) }}, {{ "{:05}".format(station.prize4_7) }} |
+| Giải năm | {{ "{:05}".format(station.prize5) }} |
+| Giải sáu | {{ "{:04}".format(station.prize6_1) }}, {{ "{:04}".format(station.prize6_2) }}, {{ "{:04}".format(station.prize6_3) }} |
+| Giải bảy | {{ "{:03}".format(station.prize7) }} |
+| Giải tám | {{ "{:02}".format(station.prize8) }} |
 
-### Data (Dữ liệu)
+### Dữ liệu
 
 |          | CSV | JSON | Parquet |
 |----------|-----|------|---------|
@@ -20,7 +28,7 @@ Dự án này dựa trên [khiemdoan/vietnam-lottery-xsmb-analysis](https://gith
 | Sparse   | [{{ station.station_code }}-sparse.csv](data/{{ station.station_code }}-sparse.csv) | [{{ station.station_code }}-sparse.json](data/{{ station.station_code }}-sparse.json) | [{{ station.station_code }}-sparse.parquet](data/{{ station.station_code }}-sparse.parquet) |
 
 <details>
-  <summary>Analysis (Phân tích)</summary>
+  <summary>Phân tích</summary>
 
   Max: {{ station.max_count }}. Min: {{ station.min_count }}.
 
