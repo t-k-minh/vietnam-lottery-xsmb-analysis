@@ -38,8 +38,8 @@ if __name__ == '__main__':
 
         # Fetch dữ liệu mới
         if lottery.get_raw_data().empty:
-            # Chưa có dữ liệu — fetch 7 ngày gần nhất
-            from_date = today - timedelta(days=7)
+            # Chưa có dữ liệu — fetch 1 năm gần nhất
+            from_date = today - timedelta(days=365)
             print(f'  First run — fetching from {from_date}')
         else:
             from_date = lottery.get_last_date()

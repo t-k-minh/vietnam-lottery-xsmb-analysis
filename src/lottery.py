@@ -163,7 +163,7 @@ class Lottery:
 
     def get_last_date(self) -> date:
         if self._raw_data.empty:
-            return date.today() - timedelta(days=7)
+            return date.today() - timedelta(days=365)
         return self._last_date
 
     def get_station_name(self) -> str:
