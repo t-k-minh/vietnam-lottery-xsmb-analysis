@@ -629,10 +629,10 @@ Mỗi đài có **3 biểu đồ** phân tích tần suất xuất hiện của 
 
 - Bảng 10x10, hàng = chữ số hàng chục (0-9), cột = chữ số hàng đơn vị (0-9)
 - Mỗi ô hiển thị **số lần** cặp số đó xuất hiện trong 1 năm
-- **Màu đỏ** = xuất hiện nhiều (nóng), **màu xanh** = xuất hiện ít (lạnh)
-- Ví dụ: ô ở hàng 8, cột 2 = số **82** xuất hiện N lần
+- **Màu xanh lá** = xuất hiện nhiều (nóng), **màu đỏ** = xuất hiện ít (lạnh)
+- Ví dụ: ô màu đỏ đậm = cặp số đó rất ít về trong năm
 
-**Ý nghĩa:** Xem cặp số nào "nóng" (hay về) và cặp nào "lạnh" (ít về).
+**Ý nghĩa:** Xem cặp số nào "nóng" (hay về, màu xanh) và cặp nào "lạnh" (ít về, màu đỏ).
 
 ### 2. Top 10 (10 số xuất hiện nhiều nhất)
 
