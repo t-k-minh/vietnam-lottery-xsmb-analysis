@@ -649,9 +649,9 @@ Mỗi đài có **3 biểu đồ** giúp bạn hiểu thói quen xuất hiện c
 
 **Đọc thế nào?**
 - Thanh ngang dài = cặp số đó về **nhiều lần** nhất
-- Thanh ngang ngắn = ít hơn但仍 top 10
+- Thanh ngang ngắn = ít hơn nhưng vẫn trong top 10
 
-**Xem gì?** Nếu muốn chọn số "hay về", xem 10 số này. Nhưng注意: số hay về không có nghĩa sẽ về tiếp — xổ số là ngẫu nhiên.
+**Xem gì?** Nếu muốn chọn số "hay về", xem 10 số này. Nhưng lưu ý: số hay về không có nghĩa sẽ về tiếp — xổ số là ngẫu nhiên.
 
 ---
 
@@ -701,7 +701,7 @@ Kết hợp cả 3 bảng để có cái nhìn tổng quát:
 | Nhiều ô đỏ | Nhiều số ít về | Top 10 tần suất thấp | Đường phẳng, trải rộng | Đài này phân bổ đều, ít số nổi bật |
 | Có ô đỏ đậm bất thường | 1-2 ô rất đỏ (dưới 5 lần) | — | Có outliers ngoài ±2σ | Có số "lạnh" bất thường, rất hiếm khi về |
 
-**Lưu ý quan trọng:** Dữ liệu chỉ mang tính **tham khảo thống kê**. Xổ số là trò chơi may rủi, mỗi lần quay là独立 (độc lập) — kết quả quá khứ **không ảnh hưởng** kết quả tương lai.
+**Lưu ý quan trọng:** Dữ liệu chỉ mang tính **tham khảo thống kê**. Xổ số là trò chơi may rủi, mỗi lần quay là độc lập — kết quả quá khứ **không ảnh hưởng** kết quả tương lai.
 
 ## Cấu trúc giải thưởng XSMN
 
