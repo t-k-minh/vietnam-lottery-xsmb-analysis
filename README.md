@@ -629,7 +629,10 @@ Mỗi đài có **3 biểu đồ** phân tích tần suất xuất hiện của 
 
 - Bảng 10x10, hàng = chữ số hàng chục (0-9), cột = chữ số hàng đơn vị (0-9)
 - Mỗi ô hiển thị **số lần** cặp số đó xuất hiện trong 1 năm
-- **Màu xanh** = xuất hiện ít, **màu đỏ** = xuất hiện nhiều
+- **Màu đỏ** = xuất hiện nhiều (nóng), **màu xanh** = xuất hiện ít (lạnh)
+- Ví dụ: ô ở hàng 8, cột 2 = số **82** xuất hiện N lần
+
+**Ý nghĩa:** Xem cặp số nào "nóng" (hay về) và cặp nào "lạnh" (ít về).
 
 ### 2. Top 10 (10 số xuất hiện nhiều nhất)
 
@@ -638,10 +641,19 @@ Mỗi đài có **3 biểu đồ** phân tích tần suất xuất hiện của 
 
 ### 3. Distribution (Phân phối tần suất)
 
-- Trục ngang = số lần xuất hiện, trục dọc = số lượng cặp số có tần suất đó
-- Đường đỏ nét liền = **trung bình** (mean)
-- Đường đỏ nét đứt = **độ lệch chuẩn** ±1σ
-- Đường đỏ nét chấm = **±2σ**
+Biểu đồ thể hiện **cách các cặp số phân bổ theo tần suất xuất hiện**:
+
+- **Trục ngang (x):** Số lần xuất hiện (VD: 50 lần, 60 lần, 70 lần...)
+- **Trục dọc (y):** Số lượng cặp số có tần suất đó (VD: có 15 cặp số xuất hiện 60 lần)
+- **Đường cong:** Phân phối KDE — cho thấy hình dáng tổng quát của dữ liệu
+- **Đường đỏ nét liền (—):** Trung bình (mean) — tần suất trung bình của tất cả cặp số
+- **Đường đỏ nét đứt (- -):** Độ lệch chuẩn ±1σ — khoảng 68% dữ liệu nằm trong này
+- **Đường đỏ nét chấm (···):** ±2σ — khoảng 95% dữ liệu nằm trong này
+
+**Ý nghĩa:**
+- Nếu đỉnh đường cong **thon,集中在 mean** = các cặp số xuất hiện đều nhau
+- Nếu đường cong **phẳng, rộng** = có sự chênh lệch lớn giữa các cặp số
+- Nếu có **outliers** (cách xa mean > 2σ) = có cặp số bất thường (quá hay về hoặc quá ít về)
 
 ## Cấu trúc giải thưởng XSMN
 
