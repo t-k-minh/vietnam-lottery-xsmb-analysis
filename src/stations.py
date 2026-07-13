@@ -6,18 +6,18 @@ __email__ = 'doankhiem.crazy@gmail.com'
 # Nguồn: https://www.minhngoc.net.vn/thong-tin/lich-quay-so-mo-thuong.html
 
 SCHEDULE: dict[int, list[str]] = {
-    0: ["TP. Hồ Chí Minh", "Đồng Tháp", "Cà Mau"],       # Thứ 2
+    0: ["TP. HCM", "Đồng Tháp", "Cà Mau"],       # Thứ 2
     1: ["Bến Tre", "Vũng Tàu", "Bạc Liêu"],                # Thứ 3
     2: ["Đồng Nai", "Cần Thơ", "Sóc Trăng"],               # Thứ 4
     3: ["Tây Ninh", "An Giang", "Bình Thuận"],              # Thứ 5
     4: ["Vĩnh Long", "Bình Dương", "Trà Vinh"],             # Thứ 6
-    5: ["TP. Hồ Chí Minh", "Long An", "Bình Phước", "Hậu Giang"],  # Thứ 7
+    5: ["TP. HCM", "Long An", "Bình Phước", "Hậu Giang"],  # Thứ 7
     6: ["Tiền Giang", "Kiên Giang", "Đà Lạt"],             # Chủ nhật
 }
 
-# Mapping tên đài → mã đài (dùng cho tên file)
+# Mapping ten dai → ma dai (dung cho ten file)
 STATION_CODES: dict[str, str] = {
-    "TP. Hồ Chí Minh": "hcm",
+    "TP. HCM": "hcm",
     "Đồng Tháp": "dongthap",
     "Cà Mau": "camau",
     "Bến Tre": "bentre",
