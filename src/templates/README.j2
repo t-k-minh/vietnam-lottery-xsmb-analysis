@@ -81,39 +81,87 @@ df = pd.read_csv('https://raw.githubusercontent.com/t-k-minh/vietnam-lottery-xsm
 ---
 {% endfor %}
 
-## Giải thích biểu đồ phân tích
+## Hướng dẫn đọc 3 biểu đồ phân tích
 
-Mỗi đài có **3 biểu đồ** phân tích tần suất xuất hiện của các cặp số (00-99) trong 1 năm:
+Mỗi đài có **3 biểu đồ** giúp bạn hiểu thói quen xuất hiện của các cặp số (00-99) trong 1 năm qua.
 
-### 1. Heatmap (Bản đồ nhiệt)
+---
 
-- Bảng 10x10, hàng = chữ số hàng chục (0-9), cột = chữ số hàng đơn vị (0-9)
-- Mỗi ô hiển thị **số lần** cặp số đó xuất hiện trong 1 năm
-- **Màu xanh lá** = xuất hiện nhiều (nóng), **màu đỏ** = xuất hiện ít (lạnh)
-- Ví dụ: ô màu đỏ đậm = cặp số đó rất ít về trong năm
+### Bảng 1: Bản đồ nhiệt (Heatmap)
 
-**Ý nghĩa:** Xem cặp số nào "nóng" (hay về, màu xanh) và cặp nào "lạnh" (ít về, màu đỏ).
+**Đây là gì?** Bảng 10x10 ô, mỗi ô đại diện cho 1 cặp số từ 00 đến 99.
 
-### 2. Top 10 (10 số xuất hiện nhiều nhất)
+**Đọc thế nào?**
+- Hàng ngang = chữ số hàng **đơn vị** (0-9)
+- Hàng dọc = chữ số hàng **chục** (0-9)
+- Số trong ô = **số lần** cặp số đó xuất hiện trong 1 năm
+- **Màu xanh** = hay về (nhiều lần), **Màu đỏ** = ít về (ít lần)
 
-- Liệt kê 10 cặp số có tần suất xuất hiện cao nhất
-- Trục ngang = cặp số (00-99), trục dọc = số lần xuất hiện
+**Ví dụ:** Ô ở hàng "6" dọc, hàng "3" ngang = cặp số **63**. Nếu ô đó màu đỏ và ghi số "2" nghĩa là cả năm cặp 63 chỉ về 2 lần.
 
-### 3. Distribution (Phân phối tần suất)
+**Xem gì?** Tìm ô màu xanh đậm = đây là các cặp số "nóng", hay xuất hiện nhất.
 
-Biểu đồ thể hiện **cách các cặp số phân bổ theo tần suất xuất hiện**:
+---
 
-- **Trục ngang (x):** Số lần xuất hiện (VD: 50 lần, 60 lần, 70 lần...)
-- **Trục dọc (y):** Số lượng cặp số có tần suất đó (VD: có 15 cặp số xuất hiện 60 lần)
-- **Đường cong:** Phân phối KDE — cho thấy hình dáng tổng quát của dữ liệu
-- **Đường đỏ nét liền (—):** Trung bình (mean) — tần suất trung bình của tất cả cặp số
-- **Đường đỏ nét đứt (- -):** Độ lệch chuẩn ±1σ — khoảng 68% dữ liệu nằm trong này
-- **Đường đỏ nét chấm (···):** ±2σ — khoảng 95% dữ liệu nằm trong này
+### Bảng 2: Top 10 số hay về nhất
 
-**Ý nghĩa:**
-- Nếu đỉnh đường cong **thon,集中在 mean** = các cặp số xuất hiện đều nhau
-- Nếu đường cong **phẳng, rộng** = có sự chênh lệch lớn giữa các cặp số
-- Nếu có **outliers** (cách xa mean > 2σ) = có cặp số bất thường (quá hay về hoặc quá ít về)
+**Đây là gì?** Liệt kê 10 cặp số xuất hiện **nhiều nhất** trong 1 năm.
+
+**Đọc thế nào?**
+- Thanh ngang dài = cặp số đó về **nhiều lần** nhất
+- Thanh ngang ngắn = ít hơn但仍 top 10
+
+**Xem gì?** Nếu muốn chọn số "hay về", xem 10 số này. Nhưng注意: số hay về không có nghĩa sẽ về tiếp — xổ số là ngẫu nhiên.
+
+---
+
+### Bảng 3: Phân phối tần suất (Distribution)
+
+**Đây là gì?** Biểu đồ cho thấy **tất cả 100 cặp số (00-99)** phân bổ thế nào theo số lần xuất hiện.
+
+**Đọc thế nào?**
+
+```
+        Số cặp số
+        có tần suất đó
+           ↑
+           |     ___
+           |    /   \
+           |   /     \
+           |  /       \
+           | /         \___
+           |/              \___
+           +------------------→ Số lần xuất hiện
+              40  50  60  70  80
+                      ↑
+                 Trung bình
+```
+
+- **Trục ngang:** Số lần xuất hiện (ít → nhiều)
+- **Trục dọc:** Số lượng cặp số có tần suất đó
+- **Đường cong:** Cho thấy hình dáng tổng quát
+- **Đường đỏ liền (—):** Trung bình — các cặp số trung bình xuất hiện bao nhiêu lần
+- **Đường đỏ đứt (- -):** Khoảng bình thường (±1σ, ~68% cặp số nằm trong này)
+- **Đường đỏ chấm (···):** Khoảng bất thường (±2σ, ~95% cặp số nằm trong này)
+
+**Xem gì?**
+- Đường cong **thon, tập trung** quanh trung bình = các cặp số xuất hiện **đều nhau**
+- Đường cong **phẳng, trải rộng** = có sự **chênh lệch lớn** — một số về rất nhiều, số khác về rất ít
+- Có ô **ra ngoài đường chấm** = cặp số **bất thường** (quá hay về hoặc quá ít về)
+
+---
+
+### Gợi ý kết hợp 3 bảng
+
+Kết hợp cả 3 bảng để có cái nhìn tổng quát:
+
+| Tình huống | Heatmap | Top 10 | Distribution | Ý nghĩa |
+|------------|---------|--------|--------------|---------|
+| Nhiều ô xanh đậm | Nhiều số về thường xuyên | Top 10 có tần suất cao | Đỉnh thon, tập trung | Đài này có vài số "nóng", hay lặp lại |
+| Nhiều ô đỏ | Nhiều số ít về | Top 10 tần suất thấp | Đường phẳng, trải rộng | Đài này phân bổ đều, ít số nổi bật |
+| Có ô đỏ đậm bất thường | 1-2 ô rất đỏ (dưới 5 lần) | — | Có outliers ngoài ±2σ | Có số "lạnh" bất thường, rất hiếm khi về |
+
+**Lưu ý quan trọng:** Dữ liệu chỉ mang tính **tham khảo thống kê**. Xổ số là trò chơi may rủi, mỗi lần quay là独立 (độc lập) — kết quả quá khứ **không ảnh hưởng** kết quả tương lai.
 
 ## Cấu trúc giải thưởng XSMN
 
