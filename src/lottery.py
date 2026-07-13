@@ -3,7 +3,7 @@ __github__ = 'https://github.com/khiemdoan'
 __email__ = 'doankhiem.crazy@gmail.com'
 
 from copy import copy
-from datetime import date
+from datetime import date, timedelta
 
 import numpy as np
 import pandas as pd
@@ -162,6 +162,8 @@ class Lottery:
         return self._sparse_data
 
     def get_last_date(self) -> date:
+        if self._raw_data.empty:
+            return date.today() - timedelta(days=7)
         return self._last_date
 
     def get_station_name(self) -> str:

@@ -37,11 +37,17 @@ if __name__ == '__main__':
         lottery.load()
 
         # Fetch dữ liệu mới
-        begin_date = lottery.get_last_date()
-        delta = (today - begin_date).days
-        if delta > 0:
-            for i in range(1, delta + 1):
-                fetch_date = begin_date + timedelta(days=i)
+        if lottery.get_raw_data().empty:
+            # Chưa có dữ liệu — fetch 7 ngày gần nhất
+            from_date = today - timedelta(days=7)
+            print(f'  First run — fetching from {from_date}')
+        else:
+            from_date = lottery.get_last_date()
+
+        delta = (today - from_date).days
+        if delta >= 0:
+            for i in range(delta + 1):
+                fetch_date = from_date + timedelta(days=i)
                 if fetch_date.weekday() == weekday or delta > 7:
                     print(f'  Fetching: {fetch_date}')
                     lottery.fetch(fetch_date)
